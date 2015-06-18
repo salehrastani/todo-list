@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="list-of-tasks">
+      <h3>List of Tasks</h3>
+    <%@tasks.each do |task| %>
+      <%= task.title%>
+      <br>
+    <%end%>
+  </div>
+</div>
+
+<div class="taskform">
+  <%= form_for @task, remote: true, url: {action: "create"} do |f|%>
+   <%= f.text_field :title%>
+   <%= f.submit "Create Task"%>
+  <%end%>
+</div>
